@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -11,6 +12,7 @@ mongoose
   })
   .then(() => {
     console.log('Connect success');
+    console.log(process.env.APP_URL);
   })
   .catch(err => {
     console.log(err);
