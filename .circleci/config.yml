@@ -9,7 +9,9 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:latest
       - image: 'circleci/mongo'
-
+      - image: circleci/mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: abc123
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
