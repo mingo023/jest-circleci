@@ -3,6 +3,6 @@ const express = require('express');
 const app = express();
 const port = process.env.NODE_ENV || 3000;
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.status(200).json({ msg: 'Hello World!' }));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
