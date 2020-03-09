@@ -1,23 +1,36 @@
-test('Should return plus', () => {
-  expect(2 + 2).toBe(4);
-});
+require('dotenv').config();
+const mongoose = require('mongoose');
+describe('Demo test', () => {
+  beforeAll(async () => {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
-test('returns undefined by default', () => {
-  const mock = jest.fn();
+    console.log('Database connected');
+  });
 
-  let result = mock('foo');
+  test('Should return plus', () => {
+    expect(2 + 2).toBe(4);
+  });
 
-  expect(result).toBeUndefined();
-  expect(mock).toHaveBeenCalled();
-  expect(mock).toHaveBeenCalledTimes(1);
-  expect(mock).toHaveBeenCalledWith('foo');
-});
+  test('returns undefined by default', () => {
+    const mock = jest.fn();
 
-test('mock return defined value', () => {
-  const fooFnc = value => value;
-  const mock = jest.fn(fooFnc);
+    let result = mock('foo');
 
-  mock.mockReturnValue('bar');
+    expect(result).toBeUndefined();
+    expect(mock).toHaveBeenCalled();
+    expect(mock).toHaveBeenCalledTimes(1);
+    expect(mock).toHaveBeenCalledWith('foo');
+  });
 
-  expect(mock('foo')).toBe('bar');
+  test('mock return defined value', () => {
+    const fooFnc = value => value;
+    const mock = jest.fn(fooFnc);
+
+    mock.mockReturnValue('bar');
+
+    expect(mock('foo')).toBe('bar');
+  });
 });
