@@ -1,12 +1,7 @@
 {
-  "addons": [
-    {
-      "plan": "mongolab:shared-single-small",
-      "as": "MONGO"
-    }
-  ],
   "environments": {
     "test": {
+      "addons": ["mongolab:sandbox"],
       "scripts": {
         "test": "yarn test"
       }
