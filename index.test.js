@@ -7,7 +7,7 @@ describe('Demo test', () => {
     //   useUnifiedTopology: true
     // });
 
-    console.log(process.env.MONGO_URL);
+    console.log(process.env.MONGODB_URI);
 
     console.log('Database connected');
   });
