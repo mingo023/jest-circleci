@@ -1,7 +1,6 @@
 {
   "environments": {
     "test": {
-      "addons": ["mongolab:sandbox"],
       "scripts": {
         "test": "yarn test"
       }

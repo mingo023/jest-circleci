@@ -2,10 +2,12 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 describe('Demo test', () => {
   beforeAll(async () => {
-    await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    // await mongoose.connect(process.env.MONGO_URL, {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true
+    // });
+
+    console.log(process.env.MONGO_URL);
 
     console.log('Database connected');
   });
