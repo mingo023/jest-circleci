@@ -8,7 +8,6 @@ describe('Demo test', () => {
     // });
 
     console.log(process.env.MONGODB_URI);
-
     console.log('Database connected');
   });
 
