@@ -7,7 +7,7 @@ function run() {
 	return new Promise((res, rej) => {
 		setTimeout(() => {
 			res();
-		}, 4000);
+		}, 5000);
 	});
 }
 
