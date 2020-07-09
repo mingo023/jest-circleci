@@ -1,37 +1,10 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+const { fetchData } = require('./utils/fetchData');
+const mockFnc = jest.fn(() => 32);
 describe('Demo test', () => {
-  beforeAll(async () => {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
-
-    console.log(process.env.MONGODB_URI);
-    console.log('Database connected');
-  });
-
-  test('Should return plus', () => {
-    expect(2 + 2).toBe(4);
-  });
-
-  test('returns undefined by default', () => {
-    const mock = jest.fn();
-
-    let result = mock('foo');
-
-    expect(result).toBeUndefined();
-    expect(mock).toHaveBeenCalled();
-    expect(mock).toHaveBeenCalledTimes(1);
-    expect(mock).toHaveBeenCalledWith('foo');
-  });
-
-  test('mock return defined value', () => {
-    const fooFnc = value => value;
-    const mock = jest.fn(fooFnc);
-
-    mock.mockReturnValue('bar');
-
-    expect(mock('foo')).toBe('bar');
-  });
+	test('Run some tests', async () => {
+		const res = await fetchData();
+		mockFnc(2);
+		expect(mockFnc.mock.calls).toEqual([[2]]);
+		expect(res.status).toBe(200);
+	});
 });
