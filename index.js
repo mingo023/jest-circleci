@@ -29,4 +29,5 @@ app.get('/post2', async (req, res) => {
 	return res.send('Hello post2');
 });
 
+// comment 1
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
